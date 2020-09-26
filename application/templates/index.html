@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      What's Jack Listening To?
+    </title>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+  </head>
+  <body>
+    {% for track in tracks: %}
+      <h1>
+        {{ track['artist'] }}
+      </h1>
+      <h1>
+        {{ track['song_title'] }}
+      </h1>
+      <h1>
+        {{ track['album_name'] }}
+      </h1>
+      <div>
+        <img src="{{ track['album_img_url'] }}">
+      </div>
+      <div>
+        {{ currently_playing }}
+      </div>
+      <a href="{{ track['spotify_url'] }}">clicky clicky</a>
+    {% endfor %}
+  </body>
+</html>
