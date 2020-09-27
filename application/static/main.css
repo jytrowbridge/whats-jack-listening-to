@@ -1,3 +1,78 @@
-body {
-  background: green;
+#currently-playing {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 150px;
+  padding: 50px;
+  /* background: gray; */
+}
+
+#nothing-playing {
+  color: black;
+  text-align: center;
+}
+
+#nothing-playing__title {
+  font-weight: bolder;
+  font-size: 3rem;
+}
+
+
+#nothing-playing__subtitle {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.tracks-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 50px 200px;
+  width: 
+}
+
+.track {
+  padding: 15px;
+  display: flex;
+  border-radius: 30px;
+  /* box-shadow: 0 0 5px black; */
+}
+
+.track__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 15px;
+  color: black;
+}
+
+.track__title {
+  font-size: 1.5rem;
+}
+
+.track__artist {
+  font-size: 1.2rem;
+}
+
+.track__album {
+  font-size: 1rem;
+}
+
+.track__spotify_link {
+  text-decoration: none;
+  /* width: 100%; */
+  width: 1000px;
+  margin-bottom: 15px;
+  /* border: 2px solid transparent; */
+}
+
+/* .track__spotify_link:hover {
+  border: 2px solid black;
+} */
+
+.track__spotify_link:hover .track{
+  box-shadow: 0 0 10px black;
+  transform: scale(1.05);
+  transition: 500ms;
 }

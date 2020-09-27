@@ -7,23 +7,36 @@
     <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
   </head>
   <body>
-    {% for track in tracks: %}
-      <h1>
-        {{ track['artist'] }}
-      </h1>
-      <h1>
-        {{ track['song_title'] }}
-      </h1>
-      <h1>
-        {{ track['album_name'] }}
-      </h1>
-      <div>
-        <img src="{{ track['album_img_url'] }}">
+    <div id="currently-playing">
+      {% if currently_playing: %}
+      Something is currently plaing!
+      {% else: %}
+        {% include "widgets/nothing_playing.jinja" %}
+      {% endif %}
+    </div>
+    {% if not currently_playing: %}
+      <div class="tracks-list">
+        {% for track in tracks: %}
+          <a href="{{ track['spotify_url'] }}" class="track__spotify_link" target="_blank">
+            <div class="track">
+              <div class="track__album_image">
+                <img src="{{ track['album_img_url'] }}">
+              </div>
+              <div class="track__info">
+                <div class="track__title">
+                  {{ track['song_title'] }}
+                </div>
+                <div class="track__artist">
+                  {{ track['artist'] }}
+                </div>
+                <div class="track__album">
+                  From the album "{{ track['album_name'] }}"
+                </div>
+              </div>
+            </div>
+          </a>
+        {% endfor %}
       </div>
-      <div>
-        {{ currently_playing }}
-      </div>
-      <a href="{{ track['spotify_url'] }}">clicky clicky</a>
-    {% endfor %}
+    {% endif %}
   </body>
 </html>
