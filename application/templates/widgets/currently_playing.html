@@ -1,0 +1,24 @@
+<div id="currently-playing">
+  <div class="currently-playing__header">
+    Jack is currently listening to:
+  </div>
+  <div class="track">
+    <div class="track__album_image">
+      <img src="{{ track.album_img_url }}">
+    </div>
+    <div class="track__info">
+      <div class="currently-playing__title">
+        {{ track.song_title }}
+      </div>
+      <div class="currently-playing__artist">
+        {{ track.artist }}
+      </div>
+      <div class="currently-playing__album">
+        From the album "{{ track.album_name }}"
+      </div>
+    </div>
+  </div>
+  <div class="currently-playing__spotify_link_wrapper">
+    <a href="{{ track.spotify_url }}" class="currently-playing__spotify_link" target="_blank">Link to track on Spotify</a>
+  </div>
+</div>

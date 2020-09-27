@@ -11,5 +11,6 @@ def index():
     return render_template(
             'index.html',
             tracks=tracks,
-            currently_playing=currently_playing
+            # currently_playing=currently_playing
+            currently_playing=False
         )

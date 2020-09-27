@@ -7,14 +7,12 @@
     <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
   </head>
   <body>
-    <div id="currently-playing">
-      {% if currently_playing: %}
-      Something is currently plaing!
-      {% else: %}
-        {% include "widgets/nothing_playing.jinja" %}
-      {% endif %}
-    </div>
-    {% if not currently_playing: %}
+    {% if currently_playing: %}
+      {% with track=tracks[0] %}
+        {% include "widgets/currently_playing.html" %}
+      {% endwith %}
+    {% else: %}
+      {% include "widgets/nothing_playing.html" %}
       <div class="tracks-list">
         {% for track in tracks: %}
           <a href="{{ track['spotify_url'] }}" class="track__spotify_link" target="_blank">

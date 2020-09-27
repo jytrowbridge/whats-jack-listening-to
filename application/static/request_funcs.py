@@ -16,7 +16,7 @@ def get_request(url, headers={}, params={}):
     return r
 
 
-def put_request(url, headers={}, body={}):
+def post_request(url, headers={}, body={}):
     try:
         r = requests.post(url, headers=headers, data=body)
         r.raise_for_status()

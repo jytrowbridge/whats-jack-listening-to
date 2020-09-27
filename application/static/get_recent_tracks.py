@@ -28,7 +28,7 @@ def get_recent_tracks():
         if '@attr' in track and track['@attr']['nowplaying']:
             currently_playing = True
             cleaned_tracks = [cleaned_track]
-            break
+            # break
 
         cleaned_tracks.append(cleaned_track)
 
