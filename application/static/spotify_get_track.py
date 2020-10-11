@@ -4,9 +4,10 @@ from application.static.request_funcs import get_request
 from application.static.spotify_get_bearer_token import get_bearer_token
 
 
-def get_track_url(track_title, artist_name):
+def get_track_url(track_title, artist_name, bearer_token):
     # Return spotify link to given track, if found; False otherwise
-    bearer_token = get_bearer_token()
+    # bearer_token = get_bearer_token()
+    
     headers = {'Authorization': f'Bearer {bearer_token}'}
     params = {
         'q': f'track:{track_title} artist:{artist_name}',

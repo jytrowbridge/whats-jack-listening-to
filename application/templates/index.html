@@ -7,6 +7,7 @@
     <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
   </head>
   <body>
+    <button onclick="updateSongs()">Test!</button>
     {% if currently_playing: %}
       {% with track=tracks[0] %}
         {% include "widgets/currently_playing.html" %}
@@ -37,4 +38,5 @@
       </div>
     {% endif %}
   </body>
+  <script type="text/javascript" src="{{ url_for('static', filename='updateSongs.js') }}"></script>
 </html>

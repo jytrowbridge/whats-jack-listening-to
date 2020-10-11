@@ -4,7 +4,7 @@ from application.static.lastfm_get_tracks import get_tracks
 from application.static.spotify_get_track import get_track_url
 
 
-def get_recent_tracks():
+def get_recent_tracks(spotify_bearer_token):
     tracks = get_tracks()
     cleaned_tracks = []
 
@@ -17,7 +17,11 @@ def get_recent_tracks():
         cleaned_track['loved'] = track['loved'] == "1"
         cleaned_track['album_name'] = track['album']['#text']
 
-        spotify_url = get_track_url(track_title=track['name'], artist_name=track['artist']['name'])
+        spotify_url = get_track_url(
+                        track_title=track['name'], 
+                        artist_name=track['artist']['name'],
+                        bearer_token=spotify_bearer_token
+                    )
         cleaned_track['spotify_url'] = spotify_url or ''
 
         for img_dic in track['image']:
